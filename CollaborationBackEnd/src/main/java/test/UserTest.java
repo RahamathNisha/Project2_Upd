@@ -1,5 +1,9 @@
 package test;
 
+import static org.junit.Assert.*;
+
+import java.util.Date;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +26,39 @@ public class UserTest {
 		ct.scan("com.niit.collaboration");
 		ct.refresh();
 		
-		ud = (TUserDAO)ct.getBean("TUserDAOImpl");
+		ud = (TUserDAO)ct.getBean("userDetailsDAO");
 	}
 	
-	@Test
+	/*@Test
 	public void insData(){
 		UserDetails u = new UserDetails();
+		u.setId("267");
+		u.setDatecreated(new Date());
 		u.setAddress("asd");
 		u.setName("asd");
 		u.setEmail("asdsdfss");
-		ud.save(u);
+		u.setEnabled("true");
+		u.setGender("male");
+		u.setIsOnline('y');
+		assertTrue(ud.save(u));
+	}
+	
+	@Test
+	public void updData(){
+		UserDetails u = new UserDetails();
+		u.setId("111");
+		u.setDatecreated(new Date());
+		u.setAddress("asd");
+		u.setName("asd");
+		u.setEmail("asdsdfss");
+		u.setEnabled("true");
+		u.setGender("male");
+		u.setIsOnline('y');
+		assertTrue(ud.update(u));
+	}*/
+	
+	@Test
+	public void delData(){		
+		assertTrue(ud.delete1("111"));
 	}
 }
